@@ -3,11 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.book.app</groupId>
-    <artifactId>app-book</artifactId>
+    <artifactId>app-collection</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>app-book</name>
+    <name>app-collection</name>
 
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
@@ -92,6 +92,8 @@
     
 
     <build>
+    
+     <pluginManagement>
         <plugins>
           
         <plugin>
@@ -182,6 +184,8 @@
        
        
         </plugins>
+        
+       </pluginManagement>
     </build>
 
 </project>
