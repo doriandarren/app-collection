@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
 import com.book.app.business.ImageService;
+import com.book.app.servlet.util.TemplateHtml;
 
 import entities.Image;
 
@@ -34,8 +35,6 @@ public class ServletEditImage extends HttpServlet {
            String messageResponse="";
 		   String option = request.getParameter("option");  
 		   
-		   
-		  
 		   	   
 		   if(option.equals("insert")){			  
 		   		  
@@ -64,7 +63,15 @@ public class ServletEditImage extends HttpServlet {
 		   
 		 response.setContentType("text/html");
 	        PrintWriter out = response.getWriter();
-	        out.println("<html>");
+	        
+	        out.println(TemplateHtml.getHead("Image")); 
+	        out.println(TemplateHtml.getMenu());
+	        
+	        out.println(messageResponse);
+	        
+	        out.println(TemplateHtml.getFooter());
+	        
+	       /* out.println("<html>");
 	        out.println("<head>");
 	        out.println(HttpHelper.getStyleTable()); 
 	        out.println("<title>Insert Image</title>");
@@ -79,7 +86,7 @@ public class ServletEditImage extends HttpServlet {
 	        	out.println("<a href=../index.html> Menu </a>");
 	        out.println("<p>");
 	        out.println("</body>");
-	        out.println("</html>");
+	        out.println("</html>");*/
 	}
 	
 

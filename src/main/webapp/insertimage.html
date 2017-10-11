@@ -1,26 +1,53 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Adicionar un Libro</title>
+        <title>Add Image</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <!-- Bootstrap -->
+ 		<link href="css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+ 		
     </head>
    <body>
-        <h1>Insertar Image</h1>
-        
-        <img  onclick=validatorImagen() id="image_display" src="./img/banner_640x480.jpg" alt="Cargar image" style="width:320px;height:240px;">
-        
-        <p id="p_info">Seleccione una imagen de 640x480 formato jpg, y menor que 20KB</p>
-              
-        <form id="form_image" action="./servlet/image?option=insert" method="Post"  enctype="multipart/form-data">        
-		  <input id="imput_file_image" type="file" name="imagefile" value="Escojer Imagen"  accept=".jpg, .png" onchange="return validateAndSubmit()">		  
-		  <br><br>		  
-		  <input id="button_validate" type="submit" value="Subir image" disabled>		  
-		</form> 
-        
-        <p> <a href=./index.html> Menu   </a></p> 
-        
-        
-        
+   
+	   <div class="container">
+		   <div class="row">
+		   		<div class="col-xs-12">
+			   		<h1>Insertar Image</h1>
+			   		<p> <a href=./index.html> Menu  </a></p> 
+		   		</div>
+		   </div>
+	   </div>
+
+
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<img onclick=validatorImagen() id="image_display"
+					src="./img/banner_640x480.jpg" alt="Cargar image"
+					style="width: 320px; height: 240px;">
+
+				<p id="p_info">Seleccione una imagen de 640x480 formato jpg, y
+					menor que 20KB</p>
+
+				<form id="form_image" action="./servlet/image?option=insert"
+					method="Post" enctype="multipart/form-data">
+					<input id="imput_file_image" type="file" name="imagefile"
+						value="Escojer Imagen" accept=".jpg, .png"
+						onchange="return validateAndSubmit()"> <br>
+					<br> <input id="button_validate" type="submit"
+						value="Subir image" disabled>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<script type="text/javascript" src="js/jquery/jquery-3.2.1.min.js"></script>
+		<script src="css/bootstrap/js/bootstrap.min.js"></script>
+		
         <script>
         function validateAndSubmit() {
             var input, file;
@@ -65,10 +92,6 @@
         }
 			
 		</script>
-
-
-
-
                              
     </body>
 </html>

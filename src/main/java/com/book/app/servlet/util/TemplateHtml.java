@@ -21,7 +21,7 @@ public class TemplateHtml {
 		        +"<html>\n" +
 				        "<head><title>" + title + "</title></head>\n" +
 				        "<!-- Bootstrap -->\r\n" + 
-				        "<link href=\""+ pathURL +"/bootstrap/css/bootstrap.min.css\" rel=\"stylesheet\" >" +	            	      
+				        "<link href=\""+ pathURL +"/css/bootstrap/css/bootstrap.min.css\" rel=\"stylesheet\" >" +	            	      
 				        "<body>\n";
 		return str;
 	}
@@ -57,8 +57,8 @@ public class TemplateHtml {
 
 	
 	public static String getFooter() {
-		String str = "<script type=\"text/javascript\" src=\""+ pathURL +"/jquery/jquery-3.2.1.min.js\"></script>\r\n" + 
-	               "	<script src=\""+ pathURL +"/bootstrap/js/bootstrap.min.js\"></script>"   +               
+		String str = "<script type=\"text/javascript\" src=\""+ pathURL +"/js/jquery/jquery-3.2.1.min.js\"></script>\r\n" + 
+	               "	<script src=\""+ pathURL +"/css/bootstrap/js/bootstrap.min.js\"></script>"   +               
 	            "</body>"+
 	         "</html>";
 		return str;
@@ -66,8 +66,8 @@ public class TemplateHtml {
 	
 	public static String getFooter(String[] strJS) {
 		StringBuilder str = new StringBuilder();
-		str.append("<script type=\"text/javascript\" src=\""+ pathURL +"/jquery/jquery-3.2.1.min.js\"></script>\r\n" + 
-	               "	<script src=\""+ pathURL +"/bootstrap/js/bootstrap.min.js\"></script>");
+		str.append("<script type=\"text/javascript\" src=\""+ pathURL +"/js/jquery/jquery-3.2.1.min.js\"></script>\r\n" + 
+	               "	<script src=\""+ pathURL +"/css/bootstrap/js/bootstrap.min.js\"></script>");
 		
 		for(int i=0; i<strJS.length;i++) {
 			str.append("<script type=\"text/javascript\" src=\""+ pathURL +"/js/"+ strJS[i] +"\"></script>\r\n");
