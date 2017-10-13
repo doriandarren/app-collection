@@ -44,8 +44,8 @@ public class Item {
 	}
 
 
-	@OneToOne(cascade={CascadeType.PERSIST,CascadeType.REMOVE},
-			optional=false)
+	@OneToOne(cascade={CascadeType.PERSIST})
+	@JoinColumn(name="image_id")
     Image image; 
     
     

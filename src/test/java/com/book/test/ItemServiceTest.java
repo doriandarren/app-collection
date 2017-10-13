@@ -37,7 +37,7 @@ private static final String TEST_USER_EMAIL = "qbit.player@gmail.com";
    
    
    
-   @Test
+   //@Test
 	public void addItem() {
 
 	   User user = MockHelper.mockUser("User Test",MockHelper.TEST_USER_EMAIL);     	 
@@ -45,20 +45,43 @@ private static final String TEST_USER_EMAIL = "qbit.player@gmail.com";
  	  	user.getCollections().add(collection);  
  	  	collection.setUser(user); 
  	  
- 	  	service.signUpUser(user);
-		
+ 	  	service.signUpUser(user);		
  	  	
 		byte[] bytImage = new byte[]{1,2,3,4,5,6,7,8,9};
 		Item item = MockHelper.mockItem("Title 1","Author 1", "Descripcion Item");
 		
 		service.addItem(collection.getId(), item, bytImage);
 		
-		
 		Collection colResult = service.find(Collection.class, collection.getId());
 		
 		Assert.assertEquals(1, colResult.getItems().size()); 
-		
-		
 	}
+   
+   
+   @Test
+  	public void removeItem() {
+	   
+	   User user = MockHelper.mockUser("User Test",MockHelper.TEST_USER_EMAIL);     	 
+	  	Collection collection = MockHelper.mockCollection("Collection test");
+	  	user.getCollections().add(collection);  
+	  	collection.setUser(user); 
+	  
+	  	service.signUpUser(user);
+	   
+	  	byte[] bytImage = new byte[]{1,2,3,4,5,6,7,8,9};
+		Item item = MockHelper.mockItem("Title 1","Author 1", "Descripcion Item");
+		
+		service.addItem(collection.getId(), item, bytImage);
+		
+		
+	  	service.removeItem(item.getId());
+	  	
+	  	Item result = service.find(Item.class, item.getId());
+	  	
+	  	Assert.assertNull(result); 
+	  	
+   }
+   
+   
 	
 }

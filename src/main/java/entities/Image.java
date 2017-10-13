@@ -34,7 +34,7 @@ public class Image {
 	
     @Id
     @GeneratedValue(strategy =GenerationType.AUTO)
-    private int id;
+    private String id;
     
     private String url;
     
@@ -42,11 +42,11 @@ public class Image {
     @Column(length=17000000)
     private byte[] bytes; 
     
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int bookId) {
+    public void setId(String bookId) {
         this.id = bookId;
     }
 

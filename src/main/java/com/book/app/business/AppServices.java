@@ -144,34 +144,67 @@ public class AppServices implements InfAppServices  {
 
 	@Override
 	public void updateItem(Item item, byte[] bytes) {
-		// TODO Auto-generated method stub
 		
+		
+		String itemId = item.getId();
+		
+		Item itemOld = entityManager.find(Item.class, itemId);
+		
+		if(item.getTitle()!=null && item.getTitle().equals("")) {
+			itemOld.setTitle(item.getTitle());
+		}
+		
+		if(item.getAuthor()!=null && item.getAuthor().equals("")) {
+			itemOld.setAuthor(item.getAuthor());
+		}
+		
+		
+		if(item.getDescription()!=null && item.getDescription().equals("")) {
+			itemOld.setDescription(item.getDescription());
+		}
+		
+		if(item.getImage()!=null) {			
+			Image image = new Image();
+			image.setBytes(bytes);
+			item.setImage(image);			
+			
+			entityManager.flush();
+			
+			String url = "image_" + image.getId() + ".jpg";
+	        image.setUrl(url);			
+			itemOld.setImage(image);
+		}
+			
 	}
 
 
 	
 
-	
-	
 	@Override
-	public void removeItem(String itemId) {
+	public void removeItem(String itemId) {		
 		
-				
-		Item item = entityManager.find(Item.class,itemId);
 		
-		Collection colec = entityManager.find(Collection.class,item.getCollection().getId());		 
+		Item item = entityManager.find(Item.class,itemId);		
+		Collection colec = entityManager.find(Collection.class,item.getCollection().getId());
 		
-		Set<Item> list = colec.getItems(); 
-		 
+		Image img = item.getImage();
+		
+		//entityManager.remove(img);
+		
+		
+		Set<Item> list = colec.getItems(); 		 
 		 for (Item c : list) {
-			if(c.equals(item)){
+			if(c.equals(item)){				
 				list.remove(c);
+				//entityManager.remove(img);
+				//remove(Image.class,c.getImage().getId());
 				break; 
 			}
 		}
 		
-		
 	}
+	
+	
 	
 	/** Services intented only for test  */
 	
