@@ -24,10 +24,9 @@ public class MockHelper {
 		  return collection; 
     }
     
-    public static Item mockItem(String title, String author, String description){
+    public static Item mockItem(String title, String description){
     	Item item = new Item();
     	item.setTitle(title);
-    	item.setAuthor(author);
     	item.setDescription(description);
     	return item;
     }

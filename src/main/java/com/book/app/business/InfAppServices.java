@@ -17,19 +17,23 @@ public interface InfAppServices {
 	
 	public void signUpUser(User user); //
 	public User signInUser(String email); 
-	public void signOut(); 
-
-	
+		
 	public void addCollection(String userId, Collection collection); //
 	
-
 	public void removeCollection(String collectionId); 
 	public void updateCollection(Collection collection); 
 	
 	public void addItem(String collectionId, Item item,byte[] bytes);
-	public void addImage(String itemId, Image image);	
+	
 	public void updateItem(Item item, byte[] bytes); 
 	public void removeItem(String  itemId); 
+	
+	
+	@Deprecated
+	public void addImage(String itemId, Image image);
+	@Deprecated
+	public void signOut(); 
+	
 	
 	/* for test */ 
 	

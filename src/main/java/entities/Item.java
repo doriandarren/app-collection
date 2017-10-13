@@ -23,8 +23,7 @@ public class Item {
 	
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String bookId;
-	private String author; 
+    private String id;
     private String description; 
     private String title;
     
@@ -44,8 +43,8 @@ public class Item {
 	}
 
 
-	@OneToOne(cascade={CascadeType.PERSIST})
-	@JoinColumn(name="image_id")
+	@OneToOne(cascade={CascadeType.PERSIST,CascadeType.REMOVE},
+			optional=false, orphanRemoval=true)
     Image image; 
     
     
@@ -66,13 +65,7 @@ public class Item {
 		this.title = title;
 	}
 
-	public String getAuthor() {
-		return author;
-	}
-
-	public void setAuthor(String author) {
-		this.author = author;
-	}
+	
 
 	public String getDescription() {
 		return description;
@@ -83,14 +76,14 @@ public class Item {
 	}
 
     public String getId() { 
-        return bookId;
+        return id;
     }
 
   
     @Override
     public String toString() {
         return "Book{" +
-                "bookId=" + bookId +
+                "bookId=" + id +
                 ", bookTitle='" + title + '\'' +
                 '}';
     }

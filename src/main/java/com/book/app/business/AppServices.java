@@ -55,6 +55,7 @@ public class AppServices implements InfAppServices  {
 		return list.get(0); 		
 	}
 
+	
 	@Override
 	public void signOut() {
 		// TODO Auto-generated method stub
@@ -119,15 +120,16 @@ public class AppServices implements InfAppServices  {
 		col.getItems().add(item);
 		
 		
-		Image image = new Image();
-		image.setBytes(bytes);
-		item.setImage(image);			
-		
-		entityManager.flush();
-		
-		String url = "image_" + image.getId() + ".jpg";
-        image.setUrl(url);
-		
+		if(bytes!=null){			
+			Image image = new Image();
+			image.setBytes(bytes);
+			item.setImage(image);			
+			
+			entityManager.flush();
+				
+			String url = "image_" + image.getId() + ".jpg";
+	        image.setUrl(url);
+		}        
 	}
 	
 	
@@ -141,6 +143,9 @@ public class AppServices implements InfAppServices  {
 		}
 		item.setImage(image);		
 	}
+	
+	
+	
 
 	@Override
 	public void updateItem(Item item, byte[] bytes) {
@@ -150,31 +155,28 @@ public class AppServices implements InfAppServices  {
 		
 		Item itemOld = entityManager.find(Item.class, itemId);
 		
-		if(item.getTitle()!=null && item.getTitle().equals("")) {
+		if(item.getTitle()!=null && !item.getTitle().equals("")) {
 			itemOld.setTitle(item.getTitle());
 		}
-		
-		if(item.getAuthor()!=null && item.getAuthor().equals("")) {
-			itemOld.setAuthor(item.getAuthor());
-		}
-		
-		
-		if(item.getDescription()!=null && item.getDescription().equals("")) {
+			
+		if(item.getDescription()!=null && !item.getDescription().equals("")) {
 			itemOld.setDescription(item.getDescription());
 		}
 		
-		if(item.getImage()!=null) {			
+		
+		if(item.getImage()==null && bytes!=null) {			
+			
 			Image image = new Image();
-			image.setBytes(bytes);
-			item.setImage(image);			
-			
-			entityManager.flush();
-			
+			image.setBytes(bytes);		
+			entityManager.flush();			
 			String url = "image_" + image.getId() + ".jpg";
 	        image.setUrl(url);			
 			itemOld.setImage(image);
+					
+		}else if( item.getImage()!=null &&  bytes!=null){
+			itemOld.getImage().setBytes(bytes); 
 		}
-			
+		
 	}
 
 
@@ -186,18 +188,11 @@ public class AppServices implements InfAppServices  {
 		
 		Item item = entityManager.find(Item.class,itemId);		
 		Collection colec = entityManager.find(Collection.class,item.getCollection().getId());
-		
-		Image img = item.getImage();
-		
-		//entityManager.remove(img);
-		
-		
-		Set<Item> list = colec.getItems(); 		 
-		 for (Item c : list) {
-			if(c.equals(item)){				
+		Set<Item> list = colec.getItems();
+				
+		for (Item c : list) {
+			if(c.equals(item)){	
 				list.remove(c);
-				//entityManager.remove(img);
-				//remove(Image.class,c.getImage().getId());
 				break; 
 			}
 		}

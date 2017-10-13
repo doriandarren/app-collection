@@ -1,25 +1,16 @@
 package com.book.app.servlet;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
-import entities.Item;
+import entities.User;
 
 public class HttpHelper {
 
 	
-	/*public static Item getParameterBook(HttpServletRequest request) { 
-		String title = request.getParameter("title");
-		String author = request.getParameter("author");
-		String desc = request.getParameter("description");
-		String bookId = request.getParameter("bookId");
-		
-		Item book = new Item(); 
-		book.setId(bookId);  
-		book.setAuthor(author);
-		book.setTitle(title);
-		book.setDescription(desc);		
-		return book; 
-	}*/
+	private static final String USER_ID = "user_id";
+	private static final String USER_EMAIL = "user_email";
+	private static final String USER_NAME = "user_name";	
 	
 	public static String getStyleTable(){
 		return "<style>" 
@@ -41,5 +32,37 @@ public class HttpHelper {
 		+"</style>"; 
 	}
 	
+	public static void deleteSesionUser(HttpServletRequest request){	
+		HttpSession sesion = request.getSession();
+		sesion.setAttribute(USER_ID, null);
+		sesion.setAttribute(USER_EMAIL, null);
+		sesion.setAttribute(USER_NAME, null);
+		
+	}
+	
+	
+	public static void saveSesionUser(HttpServletRequest request, User user){		
+		HttpSession sesion = request.getSession(true);
+		sesion.setAttribute(USER_ID, user.getId());
+		sesion.setAttribute(USER_EMAIL, user.getEmail());
+		sesion.setAttribute(USER_NAME, user.getName());
+	}
+	
+	public static User getSesionUser(HttpServletRequest request){		
+		HttpSession sesion = request.getSession(true);		
+		String id = (String) sesion.getAttribute(USER_ID);
+		String email = (String) sesion.getAttribute(USER_EMAIL);
+		String name = (String) sesion.getAttribute(USER_NAME);
+		User userLogin = null;
+		if(name!=null && id!=null && email!=null){
+			userLogin = new User();		
+			userLogin.setId(id);
+			userLogin.setEmail(email);
+			userLogin.setName(name);			
+		}				
+		return userLogin;
+	}
+	
+	//TODO blanquear la sesion
 	
 }

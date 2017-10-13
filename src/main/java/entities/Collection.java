@@ -33,7 +33,7 @@ public class Collection {
 	 
 	 
 	 @OneToMany(mappedBy = "collection", 
-			 	cascade = CascadeType.ALL)
+			 	cascade = CascadeType.ALL, orphanRemoval=true)
 	 private Set<Item> items = new HashSet<>(); 
 	 
 	 

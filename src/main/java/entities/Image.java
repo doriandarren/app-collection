@@ -29,8 +29,7 @@ import javax.persistence.*;
 
 @Entity
 public class Image {
-	
-	
+		
 	
     @Id
     @GeneratedValue(strategy =GenerationType.AUTO)
@@ -41,6 +40,11 @@ public class Image {
     @Lob @Basic(fetch = FetchType.LAZY)
     @Column(length=17000000)
     private byte[] bytes; 
+    
+    //@OneToOne(fetch= FetchType.LAZY)
+    //@JoinColumn(name="item_id")
+    //Item item;
+    
     
     public String getId() {
         return id;

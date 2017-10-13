@@ -64,10 +64,7 @@ public class BookService {
     	
     	 //entityManager.getTransaction().begin();
     	   Item bookOld= entityManager.find(Item.class,book.getId());
-    	   
-    	   if(book.getAuthor()!=null&& !book.getAuthor().equals("")){
-    		  bookOld.setAuthor(book.getAuthor()); 
-    	   }    	   
+    	    	   
     	   if(book.getTitle()!=null&& !book.getTitle().equals("")){
      		  bookOld.setTitle(book.getTitle()); 
      	   }    	   
