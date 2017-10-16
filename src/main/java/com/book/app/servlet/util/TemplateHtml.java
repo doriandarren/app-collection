@@ -65,7 +65,7 @@ public class TemplateHtml {
 				"				<li><a href=\""+  pathURL  +"/insertimage.html\">Image</a></li>\r\n" +				
 				"			</ul>\r\n" + 
 				"			<ul class=\"nav navbar-nav navbar-right\">\r\n" + 
-				"      			<li><a href=\"/servlet/logout\"><span class=\"glyphicon glyphicon-user\"></span> Sign Up</a></li>\r\n" + 
+				"      			<li><a href=\""+  pathURL  +"/servlet/logout\"><span class=\"glyphicon glyphicon-user\"></span> Sign Up</a></li>\r\n" + 
 				"    		</ul>"+				
 				"		</div>\r\n" + 
 				"		<!-- /.navbar-collapse -->\r\n" + 

@@ -61,7 +61,6 @@ public class ServletHome extends HttpServlet {
         out.println(TemplateHtml.getMenu(pathURL));        
         out.println(builder);        
         out.println(TemplateHtml.getFooter(pathURL));
-						
 	}
 
 	/**

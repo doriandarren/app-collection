@@ -67,7 +67,13 @@ public class ServletUpSetCollection extends HttpServlet {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
 		
-		
+		String id = request.getParameter("id");
+		String name = request.getParameter("name");
+		String description = request.getParameter("description");
+				
+		if(id.equals("0")){
+			
+		}
 		
 		
 		

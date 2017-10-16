@@ -58,4 +58,20 @@
     <url-pattern>/servlet/logout</url-pattern>
   </servlet-mapping>
   
+  
+  
+  <servlet>
+    <servlet-name>ServletUpSetCollection</servlet-name>
+    <servlet-class>com.book.app.servlet.ServletUpSetCollection</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletUpSetCollection</servlet-name>
+    <url-pattern>/servlet/addcollection</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  
+  
 </web-app>

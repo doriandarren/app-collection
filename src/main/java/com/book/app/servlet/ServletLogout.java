@@ -28,7 +28,7 @@ public class ServletLogout extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		HttpHelper.deleteSessionUser(request);
-		response.sendRedirect("index.html");
+		response.sendRedirect(request.getContextPath() + "/index.html");
 	}
 
 	/**

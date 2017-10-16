@@ -66,7 +66,7 @@ public class ServletSignUp extends HttpServlet {
 		}
 		
 		HttpHelper.saveSessionUser(request, user);
-		response.sendRedirect("/servlet/home");
+		response.sendRedirect("./home");
 		
 	}
 	
