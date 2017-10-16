@@ -46,8 +46,6 @@
     <servlet-name>ServletHome</servlet-name>
     <url-pattern>/servlet/home</url-pattern>
   </servlet-mapping>
-  
-  
   <servlet>
     <servlet-name>ServletLogout</servlet-name>
     <servlet-class>com.book.app.servlet.ServletLogout</servlet-class>
@@ -57,9 +55,6 @@
     <servlet-name>ServletLogout</servlet-name>
     <url-pattern>/servlet/logout</url-pattern>
   </servlet-mapping>
-  
-  
-  
   <servlet>
     <servlet-name>ServletUpSetCollection</servlet-name>
     <servlet-class>com.book.app.servlet.ServletUpSetCollection</servlet-class>
@@ -70,8 +65,14 @@
     <url-pattern>/servlet/addcollection</url-pattern>
   </servlet-mapping>
   
-  
-  
-  
+  <servlet>
+    <servlet-name>ServletRemoveCollection</servlet-name>
+    <servlet-class>com.book.app.servlet.ServletRemoveCollection</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletRemoveCollection</servlet-name>
+    <url-pattern>/servlet/removecollection</url-pattern>
+  </servlet-mapping>
   
 </web-app>

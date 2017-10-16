@@ -48,8 +48,7 @@ public class TemplateHtml {
 				"				<li class=\"dropdown\">\r\n" + 
 				"		        <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">Colections <span class=\"caret\"></span></a>\r\n" + 
 				"		        <ul class=\"dropdown-menu\">\r\n" + 
-				"		            <li><a href=\""+ pathURL +"/servlet/addcolection\">Add</a></li>\r\n" + 
-				"		            <li><a href=\""+ pathURL +"/servlet/listcolection\">List</a></li>\r\n" +
+				"		            <li><a href=\""+ pathURL +"/servlet/addcollection?option=insert&id=0\">Add</a></li>\r\n" + 
 				"		          </ul>\r\n" + 
 				"		        </li>\r\n" + 
 				"				\r\n" + 

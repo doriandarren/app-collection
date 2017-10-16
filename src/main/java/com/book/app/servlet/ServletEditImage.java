@@ -7,7 +7,6 @@ import java.io.PrintWriter;
 import java.nio.file.Paths;
 
 import javax.ejb.EJB;
-import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;

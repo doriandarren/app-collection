@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.book.app.business.AppServices;
+import com.book.app.business.InfAppServices;
 
 import entities.User;
 
@@ -25,7 +25,7 @@ public class ServletSignIn extends HttpServlet {
 	
 	/* referencia por inyección */
 	@EJB
-	private AppServices service; 
+	private InfAppServices service; 
 	
 	
     public ServletSignIn() {

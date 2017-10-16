@@ -17,7 +17,7 @@ import entities.Item;
 import entities.User;
 
 @Stateless
-@LocalBean
+//@LocalBean
 @SuppressWarnings("unchecked")
 public class AppServices implements InfAppServices  {
 

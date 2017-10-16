@@ -2,7 +2,6 @@ package com.book.test;
 
 import java.util.List;
 
-import javax.ejb.EJB;
 import javax.ejb.EJBException;
 import javax.ejb.embeddable.EJBContainer;
 import javax.inject.Inject;
@@ -14,8 +13,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.book.app.business.AppServices;
-import com.book.app.business.ImageService;
 import com.book.app.business.InfAppServices;
 import com.book.test.tools.MockHelper;
 import com.book.test.tools.TestEjbHelper;

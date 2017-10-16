@@ -2,18 +2,16 @@ package com.book.app.servlet;
 
 import java.io.IOException;
 
-import javax.ejb.EJB;
 import javax.ejb.EJBException;
 import javax.inject.Inject;
 import javax.persistence.EntityExistsException;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.book.app.business.AppServices;
+import com.book.app.business.InfAppServices;
 
 import entities.User;
 
@@ -26,12 +24,12 @@ public class ServletSignUp extends HttpServlet {
        
 	
 	/* referencia por inyección */
-	@EJB
-	private AppServices service; 
+	//@EJB
+	//private AppServices service; 
 	
-	/*
+	
 	@Inject
-	private AppServices service; */
+	private InfAppServices service;// */
 	
     
     public ServletSignUp() {
