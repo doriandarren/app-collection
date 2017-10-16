@@ -62,42 +62,17 @@ public class TemplateHtml {
 				"		          </ul>\r\n" + 
 				"		        </li>\r\n" + 
 				"		        \r\n" +
+				"				<li><a href=\""+  pathURL  +"/insertimage.html\">Image</a></li>\r\n" +				
 				"			</ul>\r\n" + 
+				"			<ul class=\"nav navbar-nav navbar-right\">\r\n" + 
+				"      			<li><a href=\"/servlet/logout\"><span class=\"glyphicon glyphicon-user\"></span> Sign Up</a></li>\r\n" + 
+				"    		</ul>"+				
 				"		</div>\r\n" + 
 				"		<!-- /.navbar-collapse -->\r\n" + 
 				"	</div>\r\n" + 
 				"	<!-- /.container-fluid --> </nav>";						
 		return strMenu;		
-	}
-
-	
-	
-	
-	
-	
-	
-	/*
-			"		   <li class=\"dropdown\">\r\n" + 
-			"		        <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">Coleccion <span class=\"caret\"></span></a>\r\n" + 
-			"		        <ul class=\"dropdown-menu\">\r\n" + 
-			"		            <li><a href=\"/adminadd.jsp\">Agregar</a></li>\r\n" + 
-			"		            <li><a href=\"/servletadmin?show=all\">Todos</a></li>\r\n" + 
-			"					<li><a href=\"/getadmins\">Generate</a></li>\r\n" + 
-			"		          </ul>\r\n" + 
-			"		        </li>\r\n" + 
-	
-		"		       <li class=\"dropdown\">\r\n" + 
-		"		        <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">Items <span class=\"caret\"></span></a>\r\n" + 
-		"		        <ul class=\"dropdown-menu\">\r\n" + 
-		"		            <li><a href=\"/adminadd.jsp\">Agregar</a></li>\r\n" + 
-		"		            <li><a href=\"/servletadmin?show=all\">Todos</a></li>\r\n" + 
-		"					<li><a href=\"/getadmins\">Generate</a></li>\r\n" + 
-		"		          </ul>\r\n" + 
-		"		        </li>\r\n" + 
-	
-	*/
-	
-	
+	}	
 	
 	public static String getFooter(String pathURL) {
 		String str = "<script type=\"text/javascript\" src=\""+ pathURL +"/js/jquery/jquery-3.2.1.min.js\"></script>\r\n" + 

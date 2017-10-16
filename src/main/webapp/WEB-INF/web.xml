@@ -46,4 +46,16 @@
     <servlet-name>ServletHome</servlet-name>
     <url-pattern>/servlet/home</url-pattern>
   </servlet-mapping>
+  
+  
+  <servlet>
+    <servlet-name>ServletLogout</servlet-name>
+    <servlet-class>com.book.app.servlet.ServletLogout</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletLogout</servlet-name>
+    <url-pattern>/servlet/logout</url-pattern>
+  </servlet-mapping>
+  
 </web-app>
