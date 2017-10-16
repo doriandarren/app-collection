@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Home</title>
+        <title>Sign Up</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
                 
         <!-- Bootstrap -->
@@ -9,8 +9,9 @@
         
     </head>
    <body>
-   
-   <nav class="navbar navbar-inverse">
+
+
+	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
@@ -30,7 +31,6 @@
 				<ul class="nav navbar-nav">
 					<li><a href="signup.html">SignUp</a></li>
 					<li><a href="signin.html">SignIn</a></li>
-					<li><a href="insertimage.html">Img</a></li>
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->
@@ -38,30 +38,37 @@
 		<!-- /.container-fluid -->
 	</nav>
 
-
-	  <div class="container">
-		   <div class="row"> 
-				<div class="jumbotron">		
-				<h1>Hola! Bienvenido</h1>
-				<p>...</p>
-				<p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a> </p>
-			</div>
-		</div>
-	</div>
-
 	<div class="container">
-	   <div class="row">
-	   		<div class="col-xs-12">
-		   		<h1>Bienvenido al Sistema</h1>
-		   		<!-- <p><a href='insertbook.html'> Insertar un book</a></p> 
-	        	<p><a href='./servlet/book?option=list'> Ver todos los libros  </a></p>
-	        
-	           	<p><a href='insertimage.html'> Insertar una imagen </a></p>  -->
-	   		</div>
-	   </div>
-   </div>
-    
-    <script type="text/javascript" src="js/jquery/jquery-3.2.1.min.js"></script>
+		<div class="row">
+			<div class="col-xs-12 text-center">
+				<h1>Sign Up</h1>
+			</div>
+			<form action="./servlet/signup" method="post" class="form-horizontal">
+				<div class="form-group">
+					<label for="name" class="col-xs-4 control-label">Name:
+					</label>
+					<div class="col-xs-6">
+						<input type="text" id="name" class="form-control" name="name" value="" autofocus>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="email" class="col-xs-4 control-label">Email:
+					</label>
+					<div class="col-xs-6">
+						<input type="text" id="email" class="form-control" name="email" value="">
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-xs-6 col-xs-offset-4">
+						<input type="submit" class="btn btn-primary" role="button" value="Submit" />
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>	
+	
+	
+	<script type="text/javascript" src="js/jquery/jquery-3.2.1.min.js"></script>
 	<script src="css/bootstrap/js/bootstrap.min.js"></script>                                
     </body>
 </html>

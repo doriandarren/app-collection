@@ -3,6 +3,7 @@ package com.book.app.business;
 import java.util.List;
 import java.util.Set;
 
+import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityExistsException;
 import javax.persistence.EntityManager;
@@ -16,6 +17,7 @@ import entities.Item;
 import entities.User;
 
 @Stateless
+@LocalBean
 @SuppressWarnings("unchecked")
 public class AppServices implements InfAppServices  {
 

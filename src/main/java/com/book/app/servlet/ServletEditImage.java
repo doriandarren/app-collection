@@ -7,6 +7,7 @@ import java.io.PrintWriter;
 import java.nio.file.Paths;
 
 import javax.ejb.EJB;
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
@@ -29,6 +30,8 @@ public class ServletEditImage extends HttpServlet {
 	/* referencia por inyección */
 	@EJB
 	private ImageService service; 
+	
+	
  
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
@@ -61,17 +64,21 @@ public class ServletEditImage extends HttpServlet {
 		   
 		
 		   
-		 response.setContentType("text/html");
+		    response.setContentType("text/html");
 	        PrintWriter out = response.getWriter();
 	        
-	        out.println(TemplateHtml.getHead("Image")); 
-	        out.println(TemplateHtml.getMenu());
+	        String pathURL = request.getContextPath();
+	        
+	        out.println(TemplateHtml.getHead("Image", pathURL)); 
+	        out.println(TemplateHtml.getMenu(pathURL));
 	        
 	        out.println(messageResponse);
 	        
-	        out.println(TemplateHtml.getFooter());
+	        out.println(TemplateHtml.getFooter(pathURL));
 	        
-	       /* out.println("<html>");
+	        
+	        /*
+	      out.println("<html>");
 	        out.println("<head>");
 	        out.println(HttpHelper.getStyleTable()); 
 	        out.println("<title>Insert Image</title>");

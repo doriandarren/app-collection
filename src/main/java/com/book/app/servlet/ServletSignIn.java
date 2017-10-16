@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import javax.ejb.EJB;
 import javax.ejb.EJBException;
-import javax.persistence.EntityExistsException;
+import javax.persistence.EntityNotFoundException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,7 +18,7 @@ import entities.User;
 /**
  * Servlet implementation class Login
  */
-@WebServlet("/Login")
+@WebServlet("/ServletSignIn")
 public class ServletSignIn extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -28,39 +28,41 @@ public class ServletSignIn extends HttpServlet {
 	private AppServices service; 
 	
 	
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public ServletSignIn() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
+						throws ServletException, IOException {
 		
-		String email = request.getParameter("email");
-		User user = null;
-		try {
-			
-			
-			user = service.signInUser(email);
-			
-			
-		} catch (EJBException e) {
-			e.getCausedByException();
-			if(e.getClass().isAssignableFrom(EntityExistsException.class)){
-				//El usurio no existe, responde adecuadamente
-				//TODO
-			}else{
-				//Error, comprueba los datos del formulario o inetente mas tarde
-			}
-		}
+		String emailUser = request.getParameter("email"); 
+		   
+		checkParameters(); 
 		
-		HttpHelper.saveSesionUser(request, user);
-		response.sendRedirect("/ServletHome");
+		User user; 
+		
+		try{			
+			user = service.signInUser(emailUser); 			
+	    }catch(EJBException e){	    	
+	    	e.getCausedByException(); 
+	    	if(e.getClass().isAssignableFrom(EntityNotFoundException.class)){
+	    		//El usuario no existe, responder adecuadamente y/o renviar 
+	    		//al signUp
+	    		//TODO 
+	    	}else {
+	    		//Error, compruebe los datos del formulario o intentelo mas tarde
+	    	}	    	
+	    	return; 
+	    }
+						   
+		HttpHelper.saveSessionUser(request, user);
+		response.sendRedirect("./home");
+		
+	}
+
+	private void checkParameters() {
+		// TODO Auto-generated method stub
 		
 	}
 

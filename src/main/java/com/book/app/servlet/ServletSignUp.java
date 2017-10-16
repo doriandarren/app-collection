@@ -4,8 +4,10 @@ import java.io.IOException;
 
 import javax.ejb.EJB;
 import javax.ejb.EJBException;
+import javax.inject.Inject;
 import javax.persistence.EntityExistsException;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,7 +21,7 @@ import entities.User;
  * Servlet implementation class Login
  */
 @WebServlet("/SignUp")
-public class ServletSingUp extends HttpServlet {
+public class ServletSignUp extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	
@@ -27,52 +29,47 @@ public class ServletSingUp extends HttpServlet {
 	@EJB
 	private AppServices service; 
 	
+	/*
+	@Inject
+	private AppServices service; */
 	
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ServletSingUp() {
+    
+    public ServletSignUp() {
         super();
         // TODO Auto-generated constructor stub
+        
     }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		
+    
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
+							throws ServletException, IOException {	
 		
 		String email = request.getParameter("email");
-		String name = request.getParameter("name");
+		String name = request.getParameter("name");	
 		
-		checkParameter();
+		//checkParameter();
 		
 		User user = new User();
 		user.setName(name);
 		user.setEmail(email);
 		
-		try {
+		try {			
 			service.signUpUser(user);
 		} catch (EJBException e) {
 			e.getCausedByException();
 			if(e.getClass().isAssignableFrom(EntityExistsException.class)){
-				//El usuario exite
+				//El usuario existe
+				response.sendError(HttpServletResponse.SC_BAD_REQUEST);
 			}else{
 				//Error, comprueba los datos del formulario o inetente mas tarde
+				response.sendError(HttpServletResponse.SC_BAD_REQUEST);
 			}
 		}
 		
-		HttpHelper.saveSesionUser(request, user);
-		response.sendRedirect("/ServletHome");
+		HttpHelper.saveSessionUser(request, user);
+		response.sendRedirect("/servlet/home");
 		
 	}
-
-	private void checkParameter() {
-		// TODO Auto-generated method stub
-		
-	}
-
+	
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -81,5 +78,11 @@ public class ServletSingUp extends HttpServlet {
 		doGet(request, response);
 		
 	}
-
+	
+	
+	private void checkParameter() {
+		// TODO Auto-generated method stub
+		
+	}
+	
 }

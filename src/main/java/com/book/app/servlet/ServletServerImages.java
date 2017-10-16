@@ -33,8 +33,6 @@ public class ServletServerImages extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
           
-		
-		 
 			  
            String pathInfo = request.getPathInfo(); // /{value}/test
            String imageName = pathInfo.replace("/", ""); 

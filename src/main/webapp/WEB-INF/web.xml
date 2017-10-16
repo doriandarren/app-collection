@@ -17,20 +17,33 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>ServletServerImages</servlet-name>
-    <url-pattern>/server/image/*</url-pattern>
+    <url-pattern>/servlet/image/*</url-pattern>
   </servlet-mapping>
-    
   <servlet>
-    <servlet-name>ServletLogin</servlet-name>
-    <servlet-class>com.book.app.servlet.ServletLogin</servlet-class>
+    <servlet-name>ServletSignIn</servlet-name>
+    <servlet-class>com.book.app.servlet.ServletSignIn</servlet-class>
     <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
-    <servlet-name>ServletLogin</servlet-name>
-    <url-pattern>/server/login</url-pattern>
+    <servlet-name>ServletSignIn</servlet-name>
+    <url-pattern>/servlet/signin</url-pattern>
   </servlet-mapping>
-  
-  
-  
-  
+  <servlet>
+    <servlet-name>ServletSignUp</servlet-name>
+    <servlet-class>com.book.app.servlet.ServletSignUp</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletSignUp</servlet-name>
+    <url-pattern>/servlet/signup</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ServletHome</servlet-name>
+    <servlet-class>com.book.app.servlet.ServletHome</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletHome</servlet-name>
+    <url-pattern>/servlet/home</url-pattern>
+  </servlet-mapping>
 </web-app>

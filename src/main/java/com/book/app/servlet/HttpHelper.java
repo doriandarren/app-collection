@@ -32,7 +32,7 @@ public class HttpHelper {
 		+"</style>"; 
 	}
 	
-	public static void deleteSesionUser(HttpServletRequest request){	
+	public static void deleteSessionUser(HttpServletRequest request){	
 		HttpSession sesion = request.getSession();
 		sesion.setAttribute(USER_ID, null);
 		sesion.setAttribute(USER_EMAIL, null);
@@ -41,14 +41,14 @@ public class HttpHelper {
 	}
 	
 	
-	public static void saveSesionUser(HttpServletRequest request, User user){		
+	public static void saveSessionUser(HttpServletRequest request, User user){		
 		HttpSession sesion = request.getSession(true);
 		sesion.setAttribute(USER_ID, user.getId());
 		sesion.setAttribute(USER_EMAIL, user.getEmail());
 		sesion.setAttribute(USER_NAME, user.getName());
 	}
 	
-	public static User getSesionUser(HttpServletRequest request){		
+	public static User getSessionUser(HttpServletRequest request){		
 		HttpSession sesion = request.getSession(true);		
 		String id = (String) sesion.getAttribute(USER_ID);
 		String email = (String) sesion.getAttribute(USER_EMAIL);
